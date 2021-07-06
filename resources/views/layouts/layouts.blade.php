@@ -15,6 +15,7 @@
     <h1>@yield('title')</h1>
     <main class="content">
         @yield('content')
+        @yield('dev')
     </main>
     <footer class="footer">
         @yield('footer')
