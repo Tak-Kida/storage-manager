@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
+    // dev用途
+    public function dev(Request $request)
+    {
+        $user = Auth::user();
+        $sort = $request->sort;
+        $items = Item::all();
+        $param = ['items' => $items, 'sort' => $sort,
+            'user' => $user];
+        return view('items.dev', $param);
+    }
+
     public function index(Request $request)
     {
         $items = Item::all();

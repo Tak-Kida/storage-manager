@@ -13,3 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# 開発用に以下を追加
+/resources/views/items/dev.blade.php
+/database/migrations/old
