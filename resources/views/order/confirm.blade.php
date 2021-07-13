@@ -1,27 +1,39 @@
 @extends('layouts.layouts')
 
-@section('title', 'item.add')
+@section('title', 'order.add')
 
 @section('content')
-    <form action="/item/add" method="post">
+    <form action="/order/add" method="post">
         <table>
             @csrf
             <tr>
-                <th>item_name: </th>
+                <th>item_id: </th>
                 <td>
-                    <input type="text" name="name">
+                    <input type="number" name="item_id">
                 </td>
             </tr>
             <tr>
-                <th>item_price: </th>
+                <th>item_amount: </th>
                 <td>
-                    <input type="number" name="price">
+                    <input type="number" name="item_amount">
                 </td>
             </tr>
             <tr>
-                <th>item_left_amount: </th>
+                <th>order_total_price: </th>
                 <td>
-                    <input type="number" name="left_amount">
+                    <input type="number" name="order_total_price">
+                </td>
+            </tr>
+            <tr>
+                <th>user_id: </th>
+                <td>
+                    <input type="number" name="user_id">
+                </td>
+            </tr>
+            <tr>
+                <th>order_status: </th>
+                <td>
+                    <input type="number" name="order_status">
                 </td>
             </tr>
             <tr>

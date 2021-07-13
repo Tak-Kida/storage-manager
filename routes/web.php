@@ -8,10 +8,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// dev用
-Route::get('item/dev', "${path}\ItemController@dev");
-
-
 // item
 // ログインが必須であるページ
 // Route::group(['middleware' => ['auth']], function () {
@@ -32,7 +28,6 @@ Route::post('item/delete', "${path}\ItemController@remove");
 // user
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 // Route::group(['middleware' => 'auth:user'], function()
 // {
    Route::get('user', 'App\Http\Controllers\UserController@index');
@@ -41,3 +36,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
    Route::get('user/delete', 'App\Http\Controllers\UserController@delete');
    Route::post('user/delete', 'App\Http\Controllers\UserController@remove');
 // });
+
+// order
+Route::get('order', "${path}\OrderController@index");
+Route::get('order/add', "${path}\OrderController@add");
+Route::post('order/add', "${path}\OrderController@create");

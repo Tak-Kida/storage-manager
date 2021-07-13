@@ -8,17 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    // dev用途
-    public function dev(Request $request)
-    {
-        $user = Auth::user();
-        $sort = $request->sort;
-        $items = Item::all();
-        $param = ['items' => $items, 'sort' => $sort,
-            'user' => $user];
-        return view('items.dev', $param);
-    }
-
     public function index(Request $request)
     {
         $items = Item::all();

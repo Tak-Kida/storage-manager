@@ -10,25 +10,24 @@ use Illuminate\Support\Facades\DB; // 追加
 
 class UserController extends Controller
 {
-    //userデータの取得
     public function index() {
         $users = DB::select('select * from users where is_deleted = 0');
         return view('user.index', ['users' => $users]);
     }
-    //userデータの編集
+
     public function edit(Request $request) {
         $param = ['id' => $request->id];
         $user = DB::select('select * from users where id = :id', $param);
         return view('user.edit', ['form' => $user[0] ]);
     }
-    //userデータの保存
+
     public function update(Request $request) {
         $param = [
             'id' => $request->id,
             'name' => $request->name,
             'user_category' => $request->user_category,
             'is_deleted' => $request->is_deleted
-    ];
+        ];
         DB::update('update users set name = :name,
         user_category = :user_category, is_deleted = :is_deleted where id = :id', $param);
         return redirect('/user');
@@ -51,7 +50,6 @@ class UserController extends Controller
         ];
         DB::update('update users set name = :name,
         user_category = :user_category, is_deleted = :is_deleted where id = :id', $param);
-        return redirect('/user');
         return redirect('/user');
     }
 }
