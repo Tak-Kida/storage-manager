@@ -3,7 +3,8 @@
 @section('title', 'order.add')
 
 @section('content')
-    <form action="/order/add" method="post">
+    <h4>注文する商品と数を入力して下さい</h4>
+    <form action="/order/confirm" method="post">
         <table>
             @csrf
             <tr>
@@ -25,24 +26,6 @@
                 </td>
             </tr>
             <tr>
-                <th>order_total_price: </th>
-                <td>
-                    <input type="number" name="order_total_price">
-                </td>
-            </tr>
-            <tr>
-                <th>user_id: </th>
-                <td>
-                    <input type="number" name="user_id" value="{{ $user->id }}">
-                </td>
-            </tr>
-            <tr>
-                <th>order_status: </th>
-                <td>
-                    <input type="number" name="order_status" value="0">
-                </td>
-            </tr>
-            <tr>
                 <th></th>
                 <td>
                     <input type="submit" value="send">
@@ -50,11 +33,6 @@
             </tr>
         </table>
     </form>
-    @if (Auth::check())
-        <p>USER: {{ $user->id }}</p>
-        <p>USER: {{ $user->name }}</p>
-    @endif
-    <p>{{ $item->left_amount }}</p>
 @endsection
 
 @section('dev')

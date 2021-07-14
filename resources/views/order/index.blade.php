@@ -13,6 +13,7 @@
             <th>Order User ID</th>
             <th>Order User Name</th>
             <th>Order Status</th>
+            <th>Status Update</th>
         </tr>
         @foreach ($orders as $order)
             <tr>
@@ -20,7 +21,7 @@
                 <td>{{ $order->item_id }}</td>
                 <td>
                     @if ($order->item != null)
-                        {{ $order->item->getData()->name }}
+                        {{ $order->item->name }}
                     @endif
                 </td>
                 <td>{{ $order->item_amount }}</td>
@@ -28,10 +29,19 @@
                 <td>{{ $order->user_id }}</td>
                 <td>
                     @if ($order->user != null)
-                        {{ $order->user->getData() }}
+                        {{ $order->user->name }}
                     @endif
                 </td>
                 <td>{{ $order->order_status }}</td>
+                <td>
+                    <form action="{{ url('/order/advance') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="number" name="id" value="{{ $order->id }}">
+                        <button type="submit" name="advance">
+                            ステータスを進める
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

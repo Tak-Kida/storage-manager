@@ -18,6 +18,11 @@ class Order extends Model
         'order_status' => 'filled'
     );
 
+    public function getData()
+    {
+        return $this ->name;
+    }
+
     public function item()
     {
         return $this ->belongsTo('App\Models\Item');

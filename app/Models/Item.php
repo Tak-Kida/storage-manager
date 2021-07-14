@@ -14,4 +14,9 @@ class Item extends Model
         'price' => 'filled',
         'left_amount' => 'filled'
     );
+
+    public function getData()
+    {
+        return $this ->name;
+    }
 }

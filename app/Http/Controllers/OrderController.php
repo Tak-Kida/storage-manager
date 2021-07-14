@@ -24,6 +24,19 @@ class OrderController extends Controller
         return view('order.add', $param);
     }
 
+    public function confirm(Request $request)
+    {
+        $item = Item::find($request->item_id);
+        $user = Auth::user();
+        $quantity = $request->item_amount;
+        $unit_price = $item->price;
+        $tax = 0.1;
+        $total_price = ($unit_price * $quantity) * ($tax + 1) ;
+        $param = ['item' => $item, 'user' => $user, 'request' => $request,
+            'quantity' => $quantity, 'total_price' => $total_price];
+        return view('order.confirm', $param);
+    }
+
     public function create(Request $request)
     {
         // 在庫量の調整
@@ -63,5 +76,13 @@ class OrderController extends Controller
         };
         $param = ['item' => $item, 'storage' => $storage, 'quantity' =>$quantity, 'result'=> $result];
         return view('order.result', $param);
+    }
+
+    public function advance(Request $request)
+    {
+        $order = Order::find($request->id);
+        $order->order_status ++;
+        $order->save();
+        return redirect('/order');
     }
 }
