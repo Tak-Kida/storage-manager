@@ -16,6 +16,7 @@ Route::get('/', function () {
 //     Route::get('item/find', "${path}\ItemController@find");
 // });
 Route::get('item', "${path}\ItemController@index");
+Route::get('item/export', "${path}\ItemController@csvExport");
 Route::get('item/find', "${path}\ItemController@find");
 Route::post('item/find', "${path}\ItemController@search");
 Route::get('item/add', "${path}\ItemController@add");
