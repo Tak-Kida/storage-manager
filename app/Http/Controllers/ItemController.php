@@ -73,10 +73,8 @@ class ItemController extends Controller
     // CSVエクスポート
     public function csvExport(Request $request) {
         $post = $request->all();
-        // $item = Item::all();
         $response = new StreamedResponse(function () use ($request, $post) {
             $stream = fopen('php://output','w');
-            // 文字化け回避
             stream_filter_prepend($stream, 'convert.iconv.utf-8/cp932//TRANSLIT');
 
             $results = Item::all();
