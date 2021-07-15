@@ -40,6 +40,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // order
 Route::get('order', "${path}\OrderController@index");
 Route::get('order/add', "${path}\OrderController@add");
-Route::post('order/confirm', "${path}\OrderController@confirm");
+Route::post('order/add_confirm', "${path}\OrderController@add_confirm");
 Route::post('order/add', "${path}\OrderController@create");
 Route::post('order/advance', "${path}\OrderController@advance");
+Route::get('order/edit', "${path}\OrderController@edit");
+Route::post('order/edit_confirm', "${path}\OrderController@edit_confirm");
+Route::post('order/edit', "${path}\OrderController@update");
+Route::post('order/delete', "${path}\OrderController@delete");

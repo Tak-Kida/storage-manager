@@ -15,12 +15,16 @@ class Order extends Model
         'item_amount' => 'filled',
         'order_total_price' => 'filled',
         'user_id' => 'filled',
-        'order_status' => 'filled'
+        'order_status' => 'filled', 'max:4'
     );
 
     public function getData()
     {
         return $this ->name;
+    }
+
+    public function getStatusName() {
+        return config('order_status.' . $this->order_status);
     }
 
     public function item()

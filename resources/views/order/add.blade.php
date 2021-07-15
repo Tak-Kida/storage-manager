@@ -4,7 +4,7 @@
 
 @section('content')
     <h4>注文する商品と数を入力して下さい</h4>
-    <form action="/order/confirm" method="post">
+    <form action="/order/add_confirm" method="post">
         <table>
             @csrf
             <tr>

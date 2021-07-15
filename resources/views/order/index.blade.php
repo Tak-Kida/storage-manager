@@ -32,7 +32,7 @@
                         {{ $order->user->name }}
                     @endif
                 </td>
-                <td>{{ $order->order_status }}</td>
+                <td>{{ $status_name[$order->order_status] }}</td>
                 <td>
                     <form action="{{ url('/order/advance') }}" method="POST">
                         {{ csrf_field() }}

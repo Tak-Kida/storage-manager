@@ -1,6 +1,6 @@
 @extends('layouts.layouts')
 
-@section('title', 'order.confirm')
+@section('title', 'order.add_confirm')
 
 @section('content')
     <h3>この内容で登録します。よろしいですか？</h3>
@@ -39,7 +39,7 @@
             <tr>
                 <th>order_status: </th>
                 <td>
-                    <input type="number" name="order_status" value="0">
+                    <input type="number" name="order_status" value="1">
                 </td>
             </tr>
             <tr>
