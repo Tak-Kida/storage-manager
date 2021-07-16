@@ -20,6 +20,7 @@
             </tr>
         @endforeach
     </table>
+    <a href="item/export">CSVエクスポート</a></br>
 @endsection
 
 @section('dev')
