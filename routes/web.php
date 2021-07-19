@@ -5,46 +5,54 @@ use Illuminate\Support\Facades\Route;
 $path = 'App\Http\Controllers';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-// item
-// ログインが必須であるページ
-// Route::group(['middleware' => ['auth']], function () {
-//     $path = 'App\Http\Controllers';
-//     Route::get('item', "App\Http\Controllers\ItemController@index");
-//     Route::get('item/find', "${path}\ItemController@find");
-// });
-Route::get('item', "${path}\ItemController@index");
-Route::get('item/export', "${path}\ItemController@csvExport");
-Route::get('item/find', "${path}\ItemController@find");
-Route::post('item/find', "${path}\ItemController@search");
-Route::get('item/add', "${path}\ItemController@add");
-Route::post('item/add', "${path}\ItemController@create");
-Route::get('item/edit', "${path}\ItemController@edit");
-Route::post('item/edit', "${path}\ItemController@update");
-Route::get('item/delete', "${path}\ItemController@delete");
-Route::post('item/delete', "${path}\ItemController@remove");
-
-// user
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::group(['middleware' => 'auth:user'], function()
-// {
-   Route::get('user', 'App\Http\Controllers\UserController@index');
-   Route::get('user/edit', 'App\Http\Controllers\UserController@edit');
-   Route::post('user/edit', 'App\Http\Controllers\UserController@update');
-   Route::get('user/delete', 'App\Http\Controllers\UserController@delete');
-   Route::post('user/delete', 'App\Http\Controllers\UserController@remove');
-// });
+// ログイン状態でのみアクセス可能
+Route::group(['middleware' => ['auth'], 'namespace' => 'App\Http\Controllers'], function () {
+    // user
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // order
+    Route::get('order', 'OrderController@index');
+});
 
-// order
-Route::get('order', "${path}\OrderController@index");
-Route::get('order/add', "${path}\OrderController@add");
-Route::post('order/add_confirm', "${path}\OrderController@add_confirm");
-Route::post('order/add', "${path}\OrderController@create");
-Route::post('order/advance', "${path}\OrderController@advance");
-Route::get('order/edit', "${path}\OrderController@edit");
-Route::post('order/edit_confirm', "${path}\OrderController@edit_confirm");
-Route::post('order/edit', "${path}\OrderController@update");
-Route::post('order/delete', "${path}\OrderController@delete");
+// ログイン状態 かつ ３：在庫受注社 はアクセス不可
+Route::group(['middleware' => ['auth','identify'], 'namespace' => 'App\Http\Controllers'], function () {
+    // item
+    Route::get('item', 'ItemController@index');
+    Route::get('item/export', 'ItemController@csvExport');
+    Route::get('item/find', 'ItemController@find');
+    Route::post('item/find', 'ItemController@search');
+    Route::get('item/add', 'ItemController@add');
+    Route::post('item/add', 'ItemController@create');
+    Route::get('item/edit', 'ItemController@edit');
+    Route::post('item/edit', 'ItemController@update');
+    Route::get('item/delete', 'ItemController@delete');
+    Route::post('item/delete', 'ItemController@remove');
+
+    //user
+    Route::get('user', 'UserController@index');
+    // Route::get('user/edit', 'UserController@edit');
+    // Route::post('user/edit', 'UserController@update');
+    // Route::get('user/delete', 'UserController@delete');
+    // Route::post('user/delete', 'UserController@remove');
+
+    // order
+    Route::get('order/add', 'OrderController@add');
+    Route::post('order/add_confirm', 'OrderController@add_confirm');
+    Route::post('order/add', 'OrderController@create');
+    Route::post('order/advance', 'OrderController@advance');
+    Route::get('order/edit', 'OrderController@edit');
+    Route::post('order/edit_confirm', 'OrderController@edit_confirm');
+    Route::post('order/edit', 'OrderController@update');
+    Route::post('order/delete', 'OrderController@delete');
+});
+
+// ログイン状態 かつ ０：全権管理者のみアクセス可能
+Route::group(['middleware' => ['auth','is_admin'], 'namespace' => 'App\Http\Controllers'], function () {
+    Route::get('user/edit', 'UserController@edit');
+    Route::post('user/edit', 'UserController@update');
+    Route::get('user/delete', 'UserController@delete');
+    Route::post('user/delete', 'UserController@remove');
+});
