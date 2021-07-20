@@ -14,7 +14,7 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         $status_name = config('order_status');
-        return view('order.index', ['orders' => $orders])->with(['status_name' => $status_name]);;
+        return view('order.index', ['orders' => $orders])->with(['status_name' => $status_name]);
     }
 
     public function add(Request $request)

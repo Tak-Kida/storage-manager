@@ -4,14 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 $path = 'App\Http\Controllers';
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 // ログイン状態でのみアクセス可能
 Route::group(['middleware' => ['auth'], 'namespace' => 'App\Http\Controllers'], function () {
-    // user
+    // root
+    Route::get('/', 'HomeController@index');
+    // home
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // order
     Route::get('order', 'OrderController@index');
@@ -33,10 +31,6 @@ Route::group(['middleware' => ['auth','identify'], 'namespace' => 'App\Http\Cont
 
     //user
     Route::get('user', 'UserController@index');
-    // Route::get('user/edit', 'UserController@edit');
-    // Route::post('user/edit', 'UserController@update');
-    // Route::get('user/delete', 'UserController@delete');
-    // Route::post('user/delete', 'UserController@remove');
 
     // order
     Route::get('order/add', 'OrderController@add');

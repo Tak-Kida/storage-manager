@@ -74,9 +74,17 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Category') }}
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="user_category" type="number"
+
+                                    <select id="user_category"
                                         class="form-control @error('user_category') is-invalid @enderror"
                                         name="user_category">
+                                        <option hidden>選択してください</option>
+                                        @foreach ($user_categories as $key => $user_category)
+                                            <option value="{{ $key }}">
+                                                {{ $user_category }}
+                                            </option>
+                                        @endforeach
+                                    </select>
 
                                     @error('user_category')
                                         <span class="invalid-feedback" role="alert">
