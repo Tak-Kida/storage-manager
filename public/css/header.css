@@ -6,13 +6,26 @@
     padding: 5px 10px;
 }
 
+.d-none {
+    display: none;
+}
+
 .pageTitle {
     display: flex;
     align-items: center;
 }
 
+.areaBtnReturn {
+    position: relative;
+    width: 21.34px;
+    height: 24px;
+    margin-right: 5px;
+}
+
 .btn-return {
-    margin-right: 7px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
 }
 

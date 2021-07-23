@@ -4,7 +4,10 @@
 @endsection
 
 <div class="pageTitle">
-    <a class="btn-return" href="javascript:history.go(-1)">←</a>
+    <div class="areaBtnReturn">
+        <a @if (Request::is('/')) class="d-none" @endif
+            class="btn-return" href="javascript:history.go(-1)">&#8592</a>
+    </div>
     <h2>@yield('title')</h2>
 </div>
 <ul class="userMenu">
