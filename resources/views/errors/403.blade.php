@@ -1,10 +1,15 @@
 @extends('layouts.layouts')
 
-@section('title', '403 -forbidden-')
+@section('title', '')
 
 @section('content')
-    <h2>403</h2>
-    <p>許可されていないアクセスです！！！</p>
+    <h2 class="error_title">アクセスできないページです</h2>
+    <p class="error_text">
+        アクセスが許可されていません。<br>
+        問題がある場合は、<br>
+        システム管理者へお問い合わせください。
+    </p>
+
 @endsection
 
 @section('dev')
