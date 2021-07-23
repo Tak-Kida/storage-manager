@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 5px 10px;
+}
+
+.pageTitle {
+    display: flex;
+    align-items: center;
+}
+
+.btn-return {
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.btn-return:hover,
+.btn-logout:hover {
+    color: #090909;
+    transition: color 0.5s;
+}
+
+.userMenu {
+    display: flex;
+}
+
+.userMenu > li {
+    padding: 3px 5px;
+}
+
+.userMenu > li:last-child {
+    display: none;
+}
+
+.userName {
+    color: #f8fafc;
+    background-color: #999;
+}
+
+.btn-logout {
+    cursor: pointer;
+}

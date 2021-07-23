@@ -1,6 +1,9 @@
 @extends('layouts.layouts')
 
 @section('title', 'Order.index')
+@section('css')
+    <link href="{{ asset('css/order.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
     <table>

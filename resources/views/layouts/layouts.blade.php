@@ -1,24 +1,27 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="T.K." />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>@yield('title')</title>
-    {{-- その他の情報 --}}
-    <link href="{{ asset('/assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
+    <link href=" {{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 
 <body>
     <header class="header">
-        @yield('header')
-        @yield('css')
+        @component('components.header')
+        @endcomponent
     </header>
-    <h1>@yield('title')</h1>
     <main class="content">
         @yield('content')
-        @yield('dev')
     </main>
     <footer class="footer">
-        @yield('footer')
+        @component('components.footer')
+        @endcomponent
     </footer>
 </body>
 

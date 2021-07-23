@@ -1,7 +1,25 @@
+@charset "UTF-8";
+
+/* helper_style */
+img {
+    width: 100%;
+}
+
+a {
+    color: #999;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN",
+        "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "ＭＳ ゴシック",
+        "Century Gothic", sans-serif;
+}
+
+/* Common Style */
 body {
     font-size: 16pt;
     color: #999;
-    margin: 5px;
 }
 
 h1 {
