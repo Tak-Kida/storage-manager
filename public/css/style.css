@@ -20,6 +20,7 @@ body {
 body {
     font-size: 16pt;
     color: #999;
+    min-width: 700px;
 }
 
 h1 {

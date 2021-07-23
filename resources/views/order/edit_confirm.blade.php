@@ -1,4 +1,4 @@
-@extends('layouts.layouts')
+@extends('layouts.layout')
 
 @section('title', 'order.edit_confirm')
 
