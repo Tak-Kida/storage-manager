@@ -5,8 +5,7 @@
 
 <div class="pageTitle">
     <div class="areaBtnReturn">
-        <a @if (Request::is('/')) class="d-none" @endif
-            class="btn-return" href="javascript:history.go(-1)">&#8592</a>
+        <a @if (Request::is('/') or Request::is('home')) class="d-none" @endif class="btn-return" href="javascript:history.go(-1)">&#8592</a>
     </div>
     <h2>@yield('title')</h2>
 </div>
@@ -21,5 +20,4 @@
             @csrf
         </form>
     </li>
-    {{-- <li class="btn-logout">ログアウト</li> --}}
 </ul>
