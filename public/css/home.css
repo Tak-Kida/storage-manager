@@ -1,0 +1,23 @@
+.index_link > li {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.borderLine {
+    width: 90%;
+    margin: 10px 5% 15px 5%;
+    /* margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px; */
+    border-style: dashed;
+}
+
+.welcomeMessage {
+    margin-bottom: 10px;
+}
+
+.notificationMessage > li {
+    margin-left: 20px;
+    font-size: 20px;
+}

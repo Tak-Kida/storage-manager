@@ -21,6 +21,7 @@ body {
     font-size: 16pt;
     color: #999;
     min-width: 700px;
+    /* max-width: 1024px; */
 }
 
 h1 {
@@ -59,7 +60,7 @@ td {
 }
 
 .content {
-    margin: 10px;
+    margin: 10px 10px;
 }
 
 .footer {
