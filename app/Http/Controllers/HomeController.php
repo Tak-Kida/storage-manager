@@ -28,7 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        // $order_undone = Order::all();
         $order_unconfirm = Order::where('order_status', '1')->get();
         $order_undone = Order::where('order_status', '2')->get();
         $order_unreceive = Order::where('order_status', '3')->get();

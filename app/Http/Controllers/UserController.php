@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     public function index() {
         $users = DB::select('select * from users where is_deleted = 0');
-        return view('user.index', ['users' => $users]);
+        $category_name = config('user_category');
+        return view('user.index', ['users' => $users, 'category_name'=>$category_name]);
     }
 
     public function edit(Request $request) {

@@ -1,6 +1,6 @@
-@extends('layouts.layouts')
+@extends('layouts.layout')
 
-@section('title', 'User.edit')
+@section('title', '登録者編集')
 
 @section('content')
     @if (count($errors) > 0)

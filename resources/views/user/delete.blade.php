@@ -1,6 +1,6 @@
-@extends('layouts.layouts')
+@extends('layouts.layout')
 
-@section('title', 'User.delete')
+@section('title', '登録者削除')
 
 @section('content')
     <form action="/user/delete" method="post">
