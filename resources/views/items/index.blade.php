@@ -1,15 +1,18 @@
 @extends('layouts.layout')
 
-@section('title', 'item.index')
+@section('title', '在庫一覧')
+@section('css')
+    <link href="{{ asset('css/item.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
-    <table>
+    <table class="dataTable">
         <tr>
             {{-- <th>Data</th> --}}
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Left</th>
+            <th>ID&#058;</th>
+            <th>商品名&#058;</th>
+            <th>単価（円）&#058;</th>
+            <th>在庫量（個）&#058;</th>
         </tr>
         @foreach ($items as $item)
             <tr>
@@ -20,17 +23,8 @@
             </tr>
         @endforeach
     </table>
-    <a href="item/export">CSVエクスポート</a></br>
-@endsection
-
-@section('dev')
-    <a href="http://localhost/item">Index</a></br>
-    <a href="http://localhost/item/find">Find</a></br>
-    <a href="http://localhost/item/add">Add</a></br>
-    <a href="http://localhost/item/edit?id=1">Edit(id=1)</a></br>
-    <a href="http://localhost/item/delete?id=1">Delete(id=1)</a></br>
-@endsection
-
-@section('footer')
-    copyright T.K.
+    <ul class="pageLinkArea">
+        <li><a href="item/add" class="pageLink">商品追加</a></li>
+        <li><a href="item/export" class="pageLink">CSVエクスポート</a></li>
+    </ul>
 @endsection

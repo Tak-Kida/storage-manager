@@ -3,7 +3,7 @@
 @section('title', '登録者一覧')
 
 @section('content')
-    <table>
+    <table class="dataTable">
         <tr>
             <th>ID</th>
             <th>名前</th>

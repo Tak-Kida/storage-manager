@@ -1,25 +1,25 @@
 @extends('layouts.layout')
 
-@section('title', 'item.add')
+@section('title', '商品追加')
 
 @section('content')
     <form action="/item/add" method="post">
         <table>
             @csrf
             <tr>
-                <th>item_name: </th>
+                <th>商品名&#058; </th>
                 <td>
                     <input type="text" name="name">
                 </td>
             </tr>
             <tr>
-                <th>item_price: </th>
+                <th>商品単価(円)&#058; </th>
                 <td>
                     <input type="number" name="price">
                 </td>
             </tr>
             <tr>
-                <th>item_left_amount: </th>
+                <th>商品在庫量(個)&#058; </th>
                 <td>
                     <input type="number" name="left_amount">
                 </td>
@@ -27,21 +27,9 @@
             <tr>
                 <th></th>
                 <td>
-                    <input type="submit" value="send">
+                    <input type="submit" value="登録">
                 </td>
             </tr>
         </table>
     </form>
-@endsection
-
-@section('dev')
-    <a href="http://localhost/item">Index</a></br>
-    <a href="http://localhost/item/find">Find</a></br>
-    <a href="http://localhost/item/add">Add</a></br>
-    <a href="http://localhost/item/edit?id=1">Edit(id=1)</a></br>
-    <a href="http://localhost/item/delete?id=1">Delete(id=1)</a></br>
-@endsection
-
-@section('footer')
-    copyright T.K.
 @endsection

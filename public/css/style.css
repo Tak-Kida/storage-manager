@@ -20,7 +20,7 @@ body {
 body {
     font-size: 16pt;
     color: #999;
-    min-width: 700px;
+    min-width: 960px;
     /* max-width: 1024px; */
 }
 
@@ -61,6 +61,31 @@ td {
 
 .content {
     margin: 10px 10px;
+}
+
+.dataTable {
+    margin-bottom: 10px;
+}
+
+.pageLinkArea {
+    margin-left: 20px;
+}
+
+.pageLinkArea > li {
+    list-style: none;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.pageLink:hover {
+    color: #090909;
+    transition: color 0.5s;
+}
+
+.homeLink:hover {
+    color: #090909;
+    transition: color 0.5s;
 }
 
 .footer {

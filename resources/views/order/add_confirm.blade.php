@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'order.add_confirm')
+@section('title', '注文の確認')
 
 @section('content')
     <h3>この内容で登録します。よろしいですか？</h3>
@@ -8,58 +8,41 @@
         <table>
             @csrf
             <tr>
-                <th>item_name: </th>
+                <th>商品名&#058; </th>
                 <td>
                     {{ $item->name }}
-                    <input name="item_id" type="number" value="{{ $request->item_id }}">
+                    <input name="item_id" type="hidden" value="{{ $request->item_id }}">
                 </td>
 
             </tr>
             <tr>
-                <th>item_amount: </th>
+                <th>数量&#058; </th>
                 <td>
                     {{ $quantity }}
-                    <input type="number" name="item_amount" value="{{ $quantity }}">
+                    <input type="hidden" name="item_amount" value="{{ $quantity }}">
                 </td>
             </tr>
             <tr>
-                <th>order_total_price: </th>
+                <th>注文代金（円）&#058; </th>
                 <td>
                     ¥ {{ $total_price }} (税込)
-                    <input type="number" name="order_total_price" value="{{ $total_price }}">
+                    <input type="hidden" name="order_total_price" value="{{ $total_price }}">
                 </td>
             </tr>
             <tr>
-                <th>user_id: </th>
+                <th>注文者&#058; </th>
                 <td>
                     {{ $user->name }}
-                    <input type="number" name="user_id" value="{{ $user->id }}">
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
                 </td>
             </tr>
-            <tr>
-                <th>order_status: </th>
-                <td>
-                    <input type="number" name="order_status" value="1">
-                </td>
-            </tr>
+            <input type="hidden" name="order_status" value="1">
             <tr>
                 <th></th>
                 <td>
-                    <input type="submit" value="send">
+                    <input type="submit" value="注文を登録する">
                 </td>
             </tr>
         </table>
     </form>
-@endsection
-
-@section('dev')
-    <a href="http://localhost/order">Index</a></br>
-    <a href="http://localhost/order/find">Find</a></br>
-    <a href="http://localhost/order/add">Add</a></br>
-    <a href="http://localhost/order/edit?id=1">Edit(id=1)</a></br>
-    <a href="http://localhost/order/delete?id=1">Delete(id=1)</a></br>
-@endsection
-
-@section('footer')
-    copyright T.K.
 @endsection

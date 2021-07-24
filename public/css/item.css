@@ -1,0 +1,13 @@
+.pageLinkArea {
+    margin-left: 20px;
+}
+
+.pageLinkArea > li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.pageLink:hover {
+    color: #090909;
+    transition: color 0.5s;
+}

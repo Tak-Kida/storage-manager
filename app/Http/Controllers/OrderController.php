@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::all();
+        $user = Auth::user();
+        if ($user->user_category == 3) {
+            $orders = Order::where('order_status', '2')->get();;
+        } else {
+            $orders = Order::all();
+        };
         $status_name = config('order_status');
         return view('order.index', ['orders' => $orders])->with(['status_name' => $status_name]);
     }
@@ -58,26 +63,6 @@ class OrderController extends Controller
         $order->fill($form)->save();
         return redirect('/order');
     }
-
-    // public function check(Request $request)
-    // {
-    //     $items = Item::all();
-    //     $user = Auth::user();
-    //     $param = ['items' => $items, 'user' => $user];
-    //     return view('order.check', $param);
-    // }
-
-    // public function checking(Request $request)
-    // {
-    //     $item = Item::find($request->item_id);
-    //     $storage = $item->left_amount;
-    //     $quantity = $request->item_amount;
-    //     if($quantity <= $storage) {
-    //         $result = $storage - $quantity;
-    //     };
-    //     $param = ['item' => $item, 'storage' => $storage, 'quantity' =>$quantity, 'result'=> $result];
-    //     return view('order.result', $param);
-    // }
 
     public function advance(Request $request)
     {

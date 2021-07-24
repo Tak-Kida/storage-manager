@@ -18,6 +18,9 @@
     </header>
     <main class="content">
         @yield('content')
+        @unless(Request::is('/') or Request::is('home'))
+            <a href="/" class="homeLink">ホームへ戻る</a>
+        @endunless
     </main>
     <footer class="footer">
         @component('components.footer')

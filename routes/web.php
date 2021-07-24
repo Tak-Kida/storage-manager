@@ -13,6 +13,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'App\Http\Controllers'], 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // order
     Route::get('order', 'OrderController@index');
+    Route::post('order/advance', 'OrderController@advance');
 });
 
 // ログイン状態 かつ ３：在庫受注社 はアクセス不可
@@ -36,7 +37,6 @@ Route::group(['middleware' => ['auth','identify'], 'namespace' => 'App\Http\Cont
     Route::get('order/add', 'OrderController@add');
     Route::post('order/add_confirm', 'OrderController@add_confirm');
     Route::post('order/add', 'OrderController@create');
-    Route::post('order/advance', 'OrderController@advance');
     Route::get('order/edit', 'OrderController@edit');
     Route::post('order/edit_confirm', 'OrderController@edit_confirm');
     Route::post('order/edit', 'OrderController@update');
