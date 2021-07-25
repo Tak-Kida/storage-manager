@@ -37,16 +37,19 @@ Route::group(['middleware' => ['auth','identify'], 'namespace' => 'App\Http\Cont
     Route::get('order/add', 'OrderController@add');
     Route::post('order/add_confirm', 'OrderController@add_confirm');
     Route::post('order/add', 'OrderController@create');
-    Route::get('order/edit', 'OrderController@edit');
-    Route::post('order/edit_confirm', 'OrderController@edit_confirm');
-    Route::post('order/edit', 'OrderController@update');
-    Route::post('order/delete', 'OrderController@delete');
 });
 
 // ログイン状態 かつ ０：全権管理者のみアクセス可能
 Route::group(['middleware' => ['auth','is_admin'], 'namespace' => 'App\Http\Controllers'], function () {
+    // user
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
     Route::get('user/delete', 'UserController@delete');
     Route::post('user/delete', 'UserController@remove');
+
+    // order
+    Route::get('order/edit', 'OrderController@edit');
+    Route::post('order/edit_confirm', 'OrderController@edit_confirm');
+    Route::post('order/edit', 'OrderController@update');
+    Route::post('order/delete', 'OrderController@delete');
 });

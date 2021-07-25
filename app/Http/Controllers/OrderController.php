@@ -13,9 +13,10 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        if ($user->user_category == 3) {
-            $orders = Order::where('order_status', '2')->get();;
-        } else {
+        if ($user->user_category == 3) { // 在庫発注社員(3)でログイン時
+            $orders = Order::where('order_status', '2')
+            ->orWhere('order_status', '3')->get();;
+        } else { // 在庫発注管理者(1)、もしくは 在庫発注社員(2)でログイン時
             $orders = Order::all();
         };
         $status_name = config('order_status');
