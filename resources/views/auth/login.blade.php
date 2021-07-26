@@ -72,6 +72,27 @@
                             </div>
                         </form>
                     </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 20px">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="background-color: #f8fafc">
+                    <div class="card-header">登録済みアカウント</div>
+                    <div class="card-body">
+                        <h4>メールアドレス</h4>
+                        <h6>※パスワードはすべて "demodemo"</h6>
+                        <ul>
+                            <li>システム管理者: demo@mail.com</li>
+                            <li>在庫発注管理者: demo1@mail.com</li>
+                            <li>在庫発注社員: demo2@mail.com</li>
+                            <li>在庫受注社: demo3@mail.com</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
