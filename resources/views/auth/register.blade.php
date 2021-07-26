@@ -79,7 +79,7 @@
                                         class="form-control @error('user_category') is-invalid @enderror"
                                         name="user_category">
                                         <option hidden>選択してください</option>
-                                        @foreach ($user_categories as $key => $user_category)
+                                        @foreach (config('user_category') as $key => $user_category)
                                             <option value="{{ $key }}">
                                                 {{ $user_category }}
                                             </option>
